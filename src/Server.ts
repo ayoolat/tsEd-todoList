@@ -10,6 +10,8 @@ import "@tsed/ajv";
 import {config, rootDir} from "./config";
 import "@tsed/typeorm";
 import {Todo} from "./controllers/todo"
+import * as ormConfig from 'ormconfig.json'
+require("dotenv").config();
 
 @Configuration({
   ...config,
@@ -18,13 +20,13 @@ import {Todo} from "./controllers/todo"
   httpsPort: false, // CHANGE
   typeorm: [
     {
-      name: "todo",
+      name: process.env.ORM_CONFIG_NAME,
       type: "postgres",
-      host: "localhost",
+      host: process.env.ORM_CONFIG_HOST,
       port: 5432,
-      username: "pvt_pg_admin",
-      password: "P@lmV13wpgSQ1",
-      database: "todo",
+      username: process.env.ORM_CONFIG_USERNAME,
+      password: process.env.ORM_CONFIG_PASSWORD,
+      database: process.env.ORM_CONFIG_DATABASE,
       synchronize: true,  
       logging: false,
       entities: [

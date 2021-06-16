@@ -1,0 +1,20 @@
+{
+    "name": "todo",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "pvt_pg_admin",
+    "password": "P@lmV13wpgSQ1",
+    "database": "todo",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+       "src/entities/**/*.ts"
+    ],
+    "migrations": [
+       "src/migration/**/*.ts"
+    ],
+    "subscribers": [
+       "src/subscriber/**/*.ts"
+    ]
+ }
